@@ -1,0 +1,11 @@
+    <!-- Indonesian -->
+    <dynamicField name="*_txt_id" type="text_id"  indexed="true"  stored="true"/>
+    <fieldType name="text_id" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_id.txt" />
+            <!-- for a less aggressive approach (only inflectional suffixes), set stemDerivational to false -->
+            <filter class="solr.IndonesianStemFilterFactory" stemDerivational="true"/>
+        </analyzer>
+    </fieldType>

@@ -1,0 +1,11 @@
+    <!-- Latvian -->
+    <dynamicField name="*_txt_lv" type="text_lv"  indexed="true"  stored="true"/>
+    <fieldType name="text_lv" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_lv.txt" />
+            <filter class="solr.LatvianStemFilterFactory"/>
+        </analyzer>
+    </fieldType>
+

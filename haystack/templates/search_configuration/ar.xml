@@ -1,0 +1,13 @@
+    <!-- Arabic -->
+    <dynamicField name="*_txt_ar" type="text_ar"  indexed="true"  stored="true"/>
+    <fieldType name="text_ar" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <!-- for any non-arabic -->
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ar.txt" />
+
+            <filter class="solr.ArabicNormalizationFilterFactory"/>
+            <filter class="solr.ArabicStemFilterFactory"/>
+        </analyzer>
+    </fieldType>

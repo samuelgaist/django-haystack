@@ -1,0 +1,11 @@
+    <!-- Hungarian -->
+    <dynamicField name="*_txt_hu" type="text_hu"  indexed="true"  stored="true"/>
+    <fieldType name="text_hu" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hu.txt" format="snowball" />
+            <filter class="solr.SnowballPorterFilterFactory" language="Hungarian"/>
+            <!-- less aggressive: <filter class="solr.HungarianLightStemFilterFactory"/> -->
+        </analyzer>
+    </fieldType>

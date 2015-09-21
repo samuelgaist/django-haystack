@@ -1,0 +1,11 @@
+    <!-- Finnish -->
+    <dynamicField name="*_txt_fi" type="text_fi"  indexed="true"  stored="true"/>
+    <fieldType name="text_fi" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fi.txt" format="snowball" />
+            <filter class="solr.SnowballPorterFilterFactory" language="Finnish"/>
+            <!-- less aggressive: <filter class="solr.FinnishLightStemFilterFactory"/> -->
+        </analyzer>
+    </fieldType>

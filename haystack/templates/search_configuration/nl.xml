@@ -1,0 +1,11 @@
+    <!-- Dutch -->
+    <dynamicField name="*_txt_nl" type="text_nl"  indexed="true"  stored="true"/>
+    <fieldType name="text_nl" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_nl.txt" format="snowball" />
+            <filter class="solr.StemmerOverrideFilterFactory" dictionary="lang/stemdict_nl.txt" ignoreCase="false"/>
+            <filter class="solr.SnowballPorterFilterFactory" language="Dutch"/>
+        </analyzer>
+    </fieldType>

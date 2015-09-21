@@ -1,0 +1,10 @@
+    <!-- Romanian -->
+    <dynamicField name="*_txt_ro" type="text_ro"  indexed="true"  stored="true"/>
+    <fieldType name="text_ro" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_ro.txt" />
+            <filter class="solr.SnowballPorterFilterFactory" language="Romanian"/>
+        </analyzer>
+    </fieldType>

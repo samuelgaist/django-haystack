@@ -1,0 +1,11 @@
+    <!-- Greek -->
+    <dynamicField name="*_txt_el" type="text_el"  indexed="true"  stored="true"/>
+    <fieldType name="text_el" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <!-- greek specific lowercase for sigma -->
+            <filter class="solr.GreekLowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="false" words="lang/stopwords_el.txt" />
+            <filter class="solr.GreekStemFilterFactory"/>
+        </analyzer>
+    </fieldType>

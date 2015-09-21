@@ -1,0 +1,10 @@
+    <!-- Basque -->
+    <dynamicField name="*_txt_eu" type="text_eu"  indexed="true"  stored="true"/>
+    <fieldType name="text_eu" class="solr.TextField" positionIncrementGap="100">
+        <analyzer>
+            <tokenizer class="solr.StandardTokenizerFactory"/>
+            <filter class="solr.LowerCaseFilterFactory"/>
+            <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_eu.txt" />
+            <filter class="solr.SnowballPorterFilterFactory" language="Basque"/>
+        </analyzer>
+    </fieldType>
