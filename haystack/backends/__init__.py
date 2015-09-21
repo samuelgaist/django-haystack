@@ -77,6 +77,7 @@ class BaseSearchBackend(object):
         self.batch_size = connection_options.get('BATCH_SIZE', 1000)
         self.silently_fail = connection_options.get('SILENTLY_FAIL', True)
         self.distance_available = connection_options.get('DISTANCE_AVAILABLE', False)
+        self.connection_language = connection_options.get('LANGUAGE', 'en')
 
     def update(self, index, iterable, commit=True):
         """
@@ -195,6 +196,12 @@ class BaseSearchBackend(object):
 
         return models
 
+
+    def language(self):
+        """
+        Returns the language used by the backend, default is english
+        """
+        return self.connection_language
 
 # Alias for easy loading within SearchQuery objects.
 SearchBackend = BaseSearchBackend
