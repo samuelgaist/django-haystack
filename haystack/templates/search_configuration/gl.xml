@@ -1,0 +1,12 @@
+    <!--  Galician  -->
+    <fieldType name="text_gl" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_gl.txt" enablePositionIncrements="true"/>
+        <filter class="solr.GalicianStemFilterFactory"/>
+        <!--
+         less aggressive: <filter class="solr.GalicianMinimalStemFilterFactory"/>
+        -->
+      </analyzer>
+    </fieldType>

@@ -41,6 +41,7 @@ class Command(BaseCommand):
             raise ImproperlyConfigured("'%s' isn't configured as a SolrEngine)." % backend.connection_alias)
 
         content_field_name, fields = backend.build_schema(connections[using].get_unified_index().all_searchfields())
+        language = backend.language()
         return Context({
             'content_field_name': content_field_name,
             'fields': fields,
@@ -48,6 +49,8 @@ class Command(BaseCommand):
             'ID': constants.ID,
             'DJANGO_CT': constants.DJANGO_CT,
             'DJANGO_ID': constants.DJANGO_ID,
+            'language' : language,
+            'language_configuration': 'search_configuration/{}.xml'.format(language)
         })
 
     def build_template(self, using):

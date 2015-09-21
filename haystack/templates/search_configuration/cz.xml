@@ -1,0 +1,9 @@
+    <!--  Czech  -->
+    <fieldType name="text_cz" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_cz.txt" enablePositionIncrements="true"/>
+        <filter class="solr.CzechStemFilterFactory"/>
+      </analyzer>
+    </fieldType>

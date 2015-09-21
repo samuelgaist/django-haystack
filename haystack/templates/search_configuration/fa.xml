@@ -1,0 +1,12 @@
+    <!--  Persian  -->
+    <fieldType name="text_fa" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+      <!--  for ZWNJ  -->
+        <charFilter class="solr.PersianCharFilterFactory"/>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <filter class="solr.ArabicNormalizationFilterFactory"/>
+        <filter class="solr.PersianNormalizationFilterFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_fa.txt" enablePositionIncrements="true"/>
+      </analyzer>
+    </fieldType>

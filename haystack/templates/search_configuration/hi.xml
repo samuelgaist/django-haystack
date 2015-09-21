@@ -1,0 +1,13 @@
+    <!--  Hindi  -->
+    <fieldType name="text_hi" class="solr.TextField" positionIncrementGap="100">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+        <!--  normalizes unicode representation  -->
+        <filter class="solr.IndicNormalizationFilterFactory"/>
+        <!--  normalizes variation in spelling  -->
+        <filter class="solr.HindiNormalizationFilterFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="lang/stopwords_hi.txt" enablePositionIncrements="true"/>
+        <filter class="solr.HindiStemFilterFactory"/>
+      </analyzer>
+    </fieldType>
