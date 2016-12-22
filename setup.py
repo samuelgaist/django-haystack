@@ -37,6 +37,7 @@ setup(
     url='http://haystacksearch.org/',
     packages=[
         'haystack',
+        'haystack.analyzers',
         'haystack.backends',
         'haystack.management',
         'haystack.management.commands',
